@@ -3,8 +3,8 @@
 ## DESCRIPTION
 
 This plugin is for use with [Cordova](http://incubator.apache.org/cordova/), and allows your application to receive push notifications on Android and iOS devices.
-* The Android implementation uses [Google's FCM (Firebase Cloud Messaging) service](http://firebase.google.com/).
-* The iOS version is based on [Apple APNS Notifications](https://developer.apple.com/notifications/).
+* The Android implementation uses [FCM Firebase Cloud Messaging](http://firebase.google.com/).
+* The iOS version is based on [APNS Notifications](https://developer.apple.com/notifications/).
 
 ### Contents
 
