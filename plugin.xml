@@ -11,7 +11,7 @@
 		<clobbers target="devicePush" />
 	</js-module>
     <dependency id="cordova-plugin-device" />
-    <dependency id="phonegap-plugin-push@1.8.4" />
+    <dependency id="phonegap-plugin-push@1.10.2" />
     <dependency id="cordova-plugin-geolocation" />
     <dependency id="cordova-plugin-whitelist" />
 </plugin>
