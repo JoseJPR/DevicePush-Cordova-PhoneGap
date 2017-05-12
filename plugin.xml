@@ -6,8 +6,8 @@
 	<engines>
 		<engine name="cordova" version=">=3.0.0"/>
 	</engines>
-	<asset src="www/devicepush.min.js" target="js/devicepush.min.js"/>
-	<js-module src="www/devicepush.min.js" name="devicePush">
+	<asset src="www/devicepush.js" target="js/devicepush.js"/>
+	<js-module src="www/devicepush.js" name="devicePush">
 		<clobbers target="devicePush" />
 	</js-module>
     <dependency id="cordova-plugin-device" />
