@@ -107,6 +107,7 @@ module.exports = {
             xmlhttpUnReg.onreadystatechange = function(){
                 if (xmlhttpUnReg.readyState == 4 && xmlhttpUnReg.status == 200){
                     console.log('_DP_readyStateDELETE');
+                    window.localStorage.clear();
                     document.dispatchEvent(evtDU);
                 }
             }
