@@ -99,20 +99,22 @@ module.exports = {
         xmlhttpSinc.send();
     },
     unregister: function(){
-        var xmlhttpUnReg = new XMLHttpRequest();
-        xmlhttpUnReg.open("DELETE", _DP_urlApi + "remove/device/", true);
-        xmlhttpUnReg.setRequestHeader("token", window.localStorage.getItem("_DP_idUser"));
-        xmlhttpUnReg.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        xmlhttpUnReg.onreadystatechange = function(){
-            if (xmlhttpUnReg.readyState == 4 && xmlhttpUnReg.status == 200){
-                console.log('_DP_readyStateDELETE');
-                document.dispatchEvent(evtDU);
+        if(typeof window.localStorage.getItem("_DP_devicePushId") != 'undefined' && window.localStorage.getItem("_DP_devicePushId") != null && window.localStorage.getItem("_DP_devicePushId") != ''){
+            var xmlhttpUnReg = new XMLHttpRequest();
+            xmlhttpUnReg.open("DELETE", _DP_urlApi + "remove/device/", true);
+            xmlhttpUnReg.setRequestHeader("token", window.localStorage.getItem("_DP_idUser"));
+            xmlhttpUnReg.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+            xmlhttpUnReg.onreadystatechange = function(){
+                if (xmlhttpUnReg.readyState == 4 && xmlhttpUnReg.status == 200){
+                    console.log('_DP_readyStateDELETE');
+                    document.dispatchEvent(evtDU);
+                }
             }
+            xmlhttpUnReg.send(JSON.stringify({
+                idApplication: window.localStorage.getItem("_DP_idApplication"),
+                idDevice: window.localStorage.getItem("_DP_devicePushId")
+            }));
         }
-        xmlhttpUnReg.send(JSON.stringify({
-            idApplication: window.localStorage.getItem("_DP_idApplication"),
-            idDevice: window.localStorage.getItem("_DP_devicePushId")
-        }));
     },
     getDeviceId: function(){ return window.localStorage.getItem("_DP_devicePushId"); },
     getDeviceToken: function(){ return window.localStorage.getItem("_DP_devicePushToken"); },
