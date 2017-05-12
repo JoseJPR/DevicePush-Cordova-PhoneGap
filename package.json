@@ -10,7 +10,7 @@
     }
   ],
   "description": "This plugin is for use with Cordova, and allows your application to receive push notifications on Android and iOS devices.",
-  "main": "www/devicepush.min.js",
+  "main": "www/devicepush.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
