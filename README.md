@@ -21,7 +21,7 @@ This plugin is for use with [Cordova](http://incubator.apache.org/cordova/), and
 - Android
 - iOS
 
-##<a name="install_plugin"></a> How to install the Plugin
+## <a name="install_plugin"></a>How to install the Plugin
 
 ### Cordova and PhoneGap CLI
 
