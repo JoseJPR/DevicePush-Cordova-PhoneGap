@@ -150,12 +150,10 @@ You can activate or deactivate gps position record.
 To activate the segmentation of notifications, you will have to send additional user data, such as personal data.
 ```js
     devicePush.putAdditionalData({
-        additionalData: {
-            name: '',
-            surnames: '',
-            age: '',
-            gender: ''
-        } 
+        name: '',
+        surnames: '',
+        age: '',
+        gender: ''
     });
 ```
 
