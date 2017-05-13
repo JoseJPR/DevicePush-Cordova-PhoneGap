@@ -1,12 +1,12 @@
 # Device Push Notification Plugin
 
-## DESCRIPTION
+## Description
 
 This plugin is for use with [Cordova](http://incubator.apache.org/cordova/), and allows your application to receive push notifications on Android and iOS devices.
 * The Android implementation uses [FCM Firebase Cloud Messaging](http://firebase.google.com/).
 * The iOS version is based on [APNS Notifications](https://developer.apple.com/notifications/).
 
-## CONTENTS
+## Contents
 
 - [How to install the Plugin](#install_plugin)
 - [Plugin API](#plugin_api)
@@ -64,7 +64,7 @@ Add *.devicepush.com domain in the config.xml file:
 <allow-navigation href="*.devicepush.com" />
 ```
 
-##<a name="plugin_api"></a> Plugin API
+## <a name="plugin_api"></a>Plugin API
 
 ### To register a new device
 When the device is ready, you must call the register function.
@@ -165,7 +165,7 @@ Looking at the above message handling code for Android, a few things bear explan
 
 Since the Android notification data models are much more flexible than that of iOS, there may be additional elements beyond **message**. You can access those elements and any additional ones via the **payload** element. This means that if your data model should change in the future, there will be no need to change and recompile the plugin.
 
-##<a name="license"></a> LICENSE
+## <a name="license"></a>LICENSE
 
 	The MIT License
 
