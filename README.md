@@ -10,7 +10,7 @@ This plugin is for use with [Cordova](http://incubator.apache.org/cordova/), and
 
 - [How to install the Plugin](#install_plugin)
 - [Plugin API](#plugin_api)
-- [LICENSE](#license)
+- [License](#license)
 
 ### Requires Versions
 
@@ -165,7 +165,7 @@ Looking at the above message handling code for Android, a few things bear explan
 
 Since the Android notification data models are much more flexible than that of iOS, there may be additional elements beyond **message**. You can access those elements and any additional ones via the **payload** element. This means that if your data model should change in the future, there will be no need to change and recompile the plugin.
 
-## <a name="license"></a>LICENSE
+## <a name="license"></a>License
 
 	The MIT License
 
