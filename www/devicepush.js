@@ -109,6 +109,11 @@ module.exports = {
                     console.log('_DP_readyStateDELETE');
                     window.localStorage.clear();
                     document.dispatchEvent(evtDU);
+                    push.unregister(function() {
+                        console.log('_DP_unregistration');
+                    }, function() {
+                        console.log('error _DP_unregistration');
+                    });
                 }
             }
             xmlhttpUnReg.send(JSON.stringify({
