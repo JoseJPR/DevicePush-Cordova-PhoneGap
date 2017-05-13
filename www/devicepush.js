@@ -4,6 +4,8 @@ var evtNR = document.createEvent("Event");
 evtNR.initEvent("notificationReceived",true,true);
 var evtDU = document.createEvent("Event");
 evtDU.initEvent("deviceUnregistered",true,true);
+var evtADU = document.createEvent("Event");
+evtADU.initEvent("additionalDataUpdated",true,true);
 var _DP_currentPosition;
 var _DP_Notifications = new Array();
 var _DP_urlApi = "http://api.devicepush.com/mobile/";
@@ -164,7 +166,9 @@ module.exports = {
         xmlhttpPutPosition.setRequestHeader("token", window.localStorage.getItem("_DP_idUser"));
 		xmlhttpPutPosition.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 		xmlhttpPutPosition.onreadystatechange = function(){
-			if (xmlhttpPutPosition.readyState == 4 && xmlhttpPutPosition.status == 200){}
+			if (xmlhttpPutPosition.readyState == 4 && xmlhttpPutPosition.status == 200){
+                document.dispatchEvent(evtADU);
+            }
 		}
 		xmlhttpPutPosition.send(JSON.stringify({
 			idDevice: window.localStorage.getItem("_DP_devicePushId"),

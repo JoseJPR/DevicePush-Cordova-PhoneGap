@@ -45,16 +45,20 @@ The plugin can be installed via PhoneGap Build:
 
 1) Open config.xml file of your project. 
 
-2) Add this line:
+2) Add this line and replace XXXXXXX with your FCM Sender ID:
 
 ```xml
-<plugin name="com.devicepush.cordova-phonegap" source="npm" />
+<plugin name="com.devicepush.cordova-phonegap" source="npm">
+    <param name="SENDER_ID" value="XXXXXXX" />
+</param>
 ```
 
 If you want to specify a particular version of the plugin you can add the version attribute to the gap tag.
 
 ```xml
-<plugin name="com.devicepush.cordova-phonegap" source="npm" version="0.4.0" />
+<plugin name="com.devicepush.cordova-phonegap" source="npm" version="0.4.0">
+    <param name="SENDER_ID" value="XXXXXXX" />
+</param>
 ```
 
 ### Whitelist
@@ -82,7 +86,7 @@ When the device is ready, you must call the register function.
                 idUser: 'USER_ID', // Your User ID in Device Push
                 idApplication: 'APPLICATION_ID', // Aplication ID in Device Push
                 position: true // Activate or deactivate gps position record. Default value is false
-                additionalData: {} // Currently in development
+                additionalData: {} // Include additional data of the current user for targeting
             });
         },
         receivedEvent: function(id) {}
@@ -99,7 +103,6 @@ You must call the unregister function.
 You can get the device id or token of the device.
 ```js
     document.addEventListener("deviceRegistered", successDeviceRegistered, false);
-
     function successDeviceRegistered(evt){
         console.log("Device Id" + evt.devicePushId);
         var id = evt.devicePushId;
@@ -113,7 +116,6 @@ With this ID you can send notification from your server.
 You can manage notifications received with the next method
 ```js
     document.addEventListener('notificationReceived', successNotificationReceived, false);
-
     function successNotificationReceived(evt){
         // evt.data.message, 
         // evt.data.title, 
@@ -128,7 +130,6 @@ You can manage notifications received with the next method
 You can unregister device.
 ```js
     document.addEventListener("deviceUnregistered", successDeviceUnregistered, false);
-
     function successDeviceUnregistered(){
         //TODO
     }
@@ -148,7 +149,6 @@ You can activate or deactivate gps position record.
 ### To put additional user data for segmentation
 To activate the segmentation of notifications, you will have to send additional user data, such as personal data.
 ```js
-    // Currently in development
     devicePush.putAdditionalData({
         additionalData: {
             name: '',
@@ -157,6 +157,14 @@ To activate the segmentation of notifications, you will have to send additional 
             gender: ''
         } 
     });
+```
+
+### When the additional data is updated
+```js
+    document.addEventListener("additionalDataUpdated", successAdditionalDataUpdated, false);
+    function successAdditionalDataUpdated(){
+        //TODO
+    }
 ```
 
 You can see more information about this at: https://www.devicepush.com/es/phonegap-cordova/
